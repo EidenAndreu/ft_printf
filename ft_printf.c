@@ -1,11 +1,24 @@
-#include "ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/23 14:09:25 by ereinald          #+#    #+#             */
+/*   Updated: 2023/07/23 14:42:50 by ereinald         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_printchar(char c)
+#include "ft_printf.h"
+#include "libft.h"
+
+int	ft_printchar(char c)
 {
 	if (c == '\t')
 	{
-		write(1, "\\t", 2);
-		return (2);
+		write(1, &c, 1);
+		return (1);
 	}
 	write(1, &c, 1);
 	return (1);
@@ -56,31 +69,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (print_length);
 }
-
-/* #include <stdio.h>
-int main(void)
-{
-    // Pruebas para ft_uitoa y ft_num_len
-    unsigned int num = 12345;
-    char *num_str = ft_uitoa(num);
-    int len = ft_num_len(num);
-    printf("Number: %u\n", num);
-    printf("Converted String: %s\n", num_str);
-    printf("Length: %d\n", len);
-
-    // Pruebas para ft_hex_len
-    unsigned int hex_num = 0xABCD;
-    int hex_len = ft_hex_len(hex_num);
-    printf("Hex Number: 0x%X\n", hex_num);
-    printf("Hex Length: %d\n", hex_len);
-
-    // Pruebas para ft_put_hex
-    unsigned int hex_num2 = 255;
-    printf("Hex Number: 0x%X\n", hex_num2);
-    printf("Hex Representation: ");
-    ft_put_hex(hex_num2, 'x');
-    printf("\n");
-
-    return 0;
-}
-*/

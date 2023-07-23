@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/23 14:10:51 by ereinald          #+#    #+#             */
+/*   Updated: 2023/07/23 14:13:47 by ereinald         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft.h"
 #include <stdlib.h>
@@ -14,25 +26,25 @@ void	ft_putstr(char *str)
 	}
 }
 
-int ft_printstr(char *str)
+int	ft_printstr(char *str)
 {
-	int len = 0; // Variable para almacenar la longitud
-	int i = 0;   // Variable para iterar sobre la cadena
+	int	len;
+	int	i;
 
+	len = 0;
+	i = 0;
 	if (str == NULL)
 	{
 		ft_putstr("(null)");
-		return 6;
+		return (6);
 	}
-
 	while (str[i])
 	{
 		write(1, &str[i], 1);
-		len++; // Incrementar la longitud en cada iteración
+		len++;
 		i++;
 	}
-
-	return len;
+	return (len);
 }
 
 int	ft_printnbr(int n)
