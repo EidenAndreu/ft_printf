@@ -6,22 +6,17 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:09:25 by ereinald          #+#    #+#             */
-/*   Updated: 2023/07/23 14:42:50 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/07/23 18:33:45 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
+#include <unistd.h>
 
 int	ft_printchar(char c)
 {
-	if (c == '\t')
-	{
-		write(1, &c, 1);
-		return (1);
-	}
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 int	ft_formats(va_list args, const char format)
@@ -51,21 +46,26 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	va_list	args;
 	int		print_length;
+	int		res;
 
 	i = 0;
 	print_length = 0;
+	res = 0;
 	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			print_length += ft_formats(args, str[i + 1]);
+			print_length = ft_formats(args, str[i + 1]);
 			i++;
 		}
 		else
-			print_length += ft_printchar(str[i]);
+			print_length = ft_printchar(str[i]);
 		i++;
+		if (print_length == -1)
+			return (-1);
+		res += print_length;
 	}
 	va_end(args);
-	return (print_length);
+	return (res);
 }

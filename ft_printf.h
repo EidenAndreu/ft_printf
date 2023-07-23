@@ -6,7 +6,7 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:15:32 by ereinald          #+#    #+#             */
-/*   Updated: 2023/07/23 14:17:10 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/07/23 18:30:45 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_print_unsigned(unsigned int n);
 int		ft_print_hex(unsigned int num, const char format);
 int		ft_printpercent(void);
 
-void	ft_putstr(char *str);
+int		ft_putstr(char *str);
 void	ft_put_ptr(uintptr_t num);
 int		ft_ptr_len(uintptr_t num);
 char	*ft_uitoa(unsigned int n);

@@ -6,7 +6,7 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:10:51 by ereinald          #+#    #+#             */
-/*   Updated: 2023/07/23 14:13:47 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/07/23 18:33:48 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	int	i;
 
@@ -24,27 +24,31 @@ void	ft_putstr(char *str)
 		write(1, &str[i], 1);
 		i++;
 	}
+	return (i);
 }
 
 int	ft_printstr(char *str)
 {
 	int	len;
+	int	res;
 	int	i;
 
 	len = 0;
+	res = 0;
 	i = 0;
 	if (str == NULL)
 	{
-		ft_putstr("(null)");
-		return (6);
+		return (ft_putstr("(null)"));
 	}
 	while (str[i])
 	{
-		write(1, &str[i], 1);
-		len++;
+		len = write(1, &str[i], 1);
+		if (len == -1)
+			return (-1);
+		res += len;
 		i++;
 	}
-	return (len);
+	return (res);
 }
 
 int	ft_printnbr(int n)
@@ -61,6 +65,5 @@ int	ft_printnbr(int n)
 
 int	ft_printpercent(void)
 {
-	write(1, "%", 1);
-	return (1);
+	return (write(1, "%", 1));
 }
