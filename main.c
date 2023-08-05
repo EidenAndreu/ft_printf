@@ -6,7 +6,7 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 12:39:52 by ereinald          #+#    #+#             */
-/*   Updated: 2023/08/05 13:09:39 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/08/05 13:45:58 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(void)
     char c = 'A';
     char *str = "Hello";
     void *ptr = (void *)0x12345678;
-    int num = 42;
+    int num = (double)42.5;
     unsigned int uns_num = 123456;
     int hex_num = 255;
 
