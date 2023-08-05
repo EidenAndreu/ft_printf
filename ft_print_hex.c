@@ -6,14 +6,13 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:15:05 by ereinald          #+#    #+#             */
-/*   Updated: 2023/07/23 20:00:44 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/08/05 15:54:08 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ft_printf.h"
 #include "libft.h"
 
-int	ft_hex_len(unsigned	int num)
+int	ft_hex_len(unsigned int num)
 {
 	int	len;
 
@@ -26,7 +25,7 @@ int	ft_hex_len(unsigned	int num)
 	return (len);
 }
 
-void	ft_put_hex(unsigned int num, const char format)
+int	ft_put_hex(unsigned int num, const char format)
 {
 	if (num >= 16)
 	{
@@ -41,10 +40,11 @@ void	ft_put_hex(unsigned int num, const char format)
 		{
 			if (format == 'x')
 				ft_putchar_fd((num - 10 + 'a'), 1);
-			if (format == 'X')
+			else if (format == 'X')
 				ft_putchar_fd((num - 10 + 'A'), 1);
 		}
 	}
+	return (0);
 }
 
 int	ft_print_hex(unsigned int num, const char format)
@@ -52,6 +52,8 @@ int	ft_print_hex(unsigned int num, const char format)
 	if (num == 0)
 		return (write(1, "0", 1));
 	else
+	{
 		ft_put_hex(num, format);
-	return (ft_hex_len(num));
+		return (ft_hex_len(num));
+	}
 }

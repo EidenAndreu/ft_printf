@@ -6,7 +6,7 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:14:04 by ereinald          #+#    #+#             */
-/*   Updated: 2023/07/23 14:14:24 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/08/05 15:19:39 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	ft_print_unsigned(unsigned int n)
 	else
 	{
 		num = ft_uitoa(n);
+		if (!num)
+			return (-1);
 		print_length += ft_printstr(num);
 		free(num);
 	}

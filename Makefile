@@ -6,7 +6,7 @@
 #    By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/23 13:58:53 by ereinald          #+#    #+#              #
-#    Updated: 2023/08/05 12:41:10 by ereinald         ###   ########.fr        #
+#    Updated: 2023/08/05 13:47:13 by ereinald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -I$(INCLUDE) -I$(LIBFT)
 RM = rm -f
 AR = ar rcs
 
-SRC_FILES = ft_printf.c ft_printf_utils.c ft_print_ptr.c ft_print_unsigned.c ft_print_hex.c main.c
+SRC_FILES = ft_printf.c ft_printf_utils.c ft_print_ptr.c ft_print_unsigned.c ft_print_hex.c 
 
 SRC = $(SRC_FILES)
 OBJ = $(SRC:.c=.o)
