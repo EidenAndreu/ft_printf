@@ -6,7 +6,7 @@
 #    By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/23 13:58:53 by ereinald          #+#    #+#              #
-#    Updated: 2023/08/05 13:47:13 by ereinald         ###   ########.fr        #
+#    Updated: 2023/08/15 18:12:44 by ereinald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,11 @@ SRC_FILES = ft_printf.c ft_printf_utils.c ft_print_ptr.c ft_print_unsigned.c ft_
 
 SRC = $(SRC_FILES)
 OBJ = $(SRC:.c=.o)
+HDR_FILES = ft_printf.h libft/libft.h
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HDR_FILES) Makefile
 	@$(MAKE) -C $(LIBFT)
 	@cp $(LIBFT)/libft.a $(NAME)
 	@$(AR) $(NAME) $(OBJ)
