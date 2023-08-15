@@ -6,7 +6,7 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:15:32 by ereinald          #+#    #+#             */
-/*   Updated: 2023/08/15 13:50:00 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/08/15 14:46:42 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		ft_ptr_len(uintptr_t num);
 char	*ft_uitoa(unsigned int n);
 int		ft_num_len(unsigned	int num);
 int		ft_put_hex(unsigned int num, const char format);
+int		ft_put_hex_digit(unsigned int num, const char format);
 int		ft_hex_len(unsigned	int num);
 
 #endif

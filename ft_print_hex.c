@@ -6,7 +6,7 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:15:05 by ereinald          #+#    #+#             */
-/*   Updated: 2023/08/15 14:01:55 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/08/15 14:46:38 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -25,35 +25,44 @@ int	ft_hex_len(unsigned int num)
 	return (len);
 }
 
-int	ft_put_hex(unsigned int num, const char format)
+int	ft_put_hex_digit(unsigned int num, const char format)
 {
-	if (num >= 16)
-	{
-		ft_put_hex(num / 16, format);
-		ft_put_hex(num % 16, format);
-	}
+	if (num <= 9)
+		return (ft_putchar_fd((num + '0'), 1));
 	else
 	{
-		if (num <= 9)
-			ft_putchar_fd((num + '0'), 1);
-		else
-		{
-			if (format == 'x')
-				ft_putchar_fd((num - 10 + 'a'), 1);
-			else if (format == 'X')
-				ft_putchar_fd((num - 10 + 'A'), 1);
-		}
+		if (format == 'x')
+			return (ft_putchar_fd((num - 10 + 'a'), 1));
+		else if (format == 'X')
+			return (ft_putchar_fd((num - 10 + 'A'), 1));
 	}
 	return (-1);
 }
 
+int	ft_put_hex(unsigned int num, const char format)
+{
+	if (num >= 16)
+	{
+		if (ft_put_hex(num / 16, format) == -1)
+			return (-1);
+	}
+	return (ft_put_hex_digit(num % 16, format));
+}
+
 int	ft_print_hex(unsigned int num, const char format)
 {
+	if (format != 'x' && format != 'X')
+		return (-1);
 	if (num == 0)
-		return (write(1, "0", 1));
+	{
+		if (write(1, "0", 1) == -1)
+			return (-1);
+	}
 	else
 	{
-		ft_put_hex(num, format);
+		if (ft_put_hex(num, format) == -1)
+			return (-1);
 		return (ft_hex_len(num));
 	}
+	return (1);
 }
