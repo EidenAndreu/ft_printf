@@ -6,7 +6,7 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:14:38 by ereinald          #+#    #+#             */
-/*   Updated: 2023/08/05 15:59:15 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/08/15 12:46:10 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,14 @@ void	ft_put_ptr(uintptr_t num)
 	}
 }
 
-int	ft_print_ptr(unsigned long long ptr)
+int	ft_print_ptr(uintptr_t ptr)
 {
 	int	print_length;
 
 	print_length = 0;
 	print_length += write(1, "0x", 2);
+	if (print_length == -1)
+		return (-1);
 	if (ptr == 0)
 		print_length += write(1, "0", 1);
 	else

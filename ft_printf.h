@@ -6,7 +6,7 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:15:32 by ereinald          #+#    #+#             */
-/*   Updated: 2023/08/05 15:59:18 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/08/15 13:50:00 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_printf(const char *format, ...);
 int		ft_formats(va_list args, const char format);
 int		ft_printchar(char c);
 int		ft_printstr(char *str);
-int		ft_print_ptr(unsigned long long ptr);
+int		ft_print_ptr(uintptr_t ptr);
 int		ft_printnbr(int n);
 int		ft_print_unsigned(unsigned int n);
 int		ft_print_hex(unsigned int num, const char format);

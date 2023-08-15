@@ -6,7 +6,7 @@
 /*   By: ereinald <ereinald@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:15:05 by ereinald          #+#    #+#             */
-/*   Updated: 2023/08/05 15:54:08 by ereinald         ###   ########.fr       */
+/*   Updated: 2023/08/15 14:01:55 by ereinald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -44,7 +44,7 @@ int	ft_put_hex(unsigned int num, const char format)
 				ft_putchar_fd((num - 10 + 'A'), 1);
 		}
 	}
-	return (0);
+	return (-1);
 }
 
 int	ft_print_hex(unsigned int num, const char format)
